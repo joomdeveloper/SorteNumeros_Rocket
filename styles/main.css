@@ -1,0 +1,146 @@
+main {
+    gap: 6.75rem;
+    width: 100%;
+
+    margin-inline: auto;
+
+    position: relative;
+
+    & #content {
+        gap: 2.375rem;
+        width: 31.75rem;
+
+        & header {
+            gap: .75rem;
+            width: 100%;
+
+            & h2 {
+                background: linear-gradient(90deg, var(--content-secondary) 0%, var(--background-gray) 100%);
+                width: 100%;
+
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+    
+            & h1 {
+                font: var(--display-large);
+                letter-spacing: -.04rem;
+                text-transform: uppercase;
+            }
+        }
+
+        & .faq {
+            gap: 2.25rem;
+            width: 24.125rem;
+
+            & .item {
+                gap: .5rem;
+                align-items: flex-start;
+
+                & svg {
+                    min-width: 1.25rem;
+                    width: 1.25rem;
+                    height: 1.25rem;
+
+                    & path {
+                        stroke: var(--content-brand);
+                    }
+                }
+
+                & .text-container {
+                    & h3 {
+                        color: var(--content-brand);
+                    }
+
+                    & p {
+                        color: var(--content-secondary);
+                    }
+                }
+            }
+        }
+    }
+
+    & #form-wrapper {
+        gap: 2.5rem;
+        width: 30.125rem;
+
+        & header {
+            gap: 2px;
+
+            & p {
+                font: var(--paragraph-large);
+                color: var(--content-secondary);
+            }
+        }
+    }
+
+    & .mobile-only { display: none; }
+}
+
+@media (width < 85.375rem) {
+    & main {
+        flex-direction: column;
+        gap: 0;
+
+        & #content {
+            width: 20rem;
+            margin-bottom: 2.625rem;
+
+            & header {
+                gap: .5rem;
+    
+                & h1 {
+                    font: var(--display-medium);
+                }
+            }
+        }
+
+        & #form-wrapper {
+            width: 20rem;
+
+            & header {
+                & p {
+                    font: var(--paragraph-medium);
+                }
+            }
+        }
+
+        & .mobile-only {
+            display: flex;
+            margin-top: 5rem;
+
+            &.faq {
+                gap: 2.25rem;
+                width: 100%;
+    
+                & .item {
+                    gap: .5rem;
+                    align-items: flex-start;
+    
+                    & svg {
+                        min-width: 1.25rem;
+                        width: 1.25rem;
+                        height: 1.25rem;
+    
+                        & path {
+                            stroke: var(--content-brand);
+                        }
+                    }
+    
+                    & .text-container {
+                        & h3 {
+                            color: var(--content-brand);
+                        }
+    
+                        & p {
+                            color: var(--content-secondary);
+                        }
+                    }
+                }
+            }
+        }
+
+        & .desktop-only { display: none; }
+    }
+}

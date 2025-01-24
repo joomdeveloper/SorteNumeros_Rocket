@@ -1,0 +1,118 @@
+/* CSS, I love you. */
+@property --angle {
+    syntax: "<angle>"; /* controls values that the variable can accept: 'number' + degrees -> 180deg */
+    initial-value: 0deg; /* default value to apply */
+    inherits: false; /* default setting for custom property */
+}
+
+button[type="submit"]:hover::before,
+button[type="submit"]:focus::before,
+button[type="submit"]:focus-within::before {
+    --angle: 0deg; /* custom property */
+    content: "";
+    width: 100%;
+    height: 100%;
+
+    background-image: conic-gradient(from var(--angle), var( --accent-green) 0%, var(--accent-lime) 14.84%, var(--accent-red) 32.15%, var(--accent-pink) 65.79%, var(--accent-blue) 84.58%, var( --accent-green) 100%);
+    border-radius: .5rem;
+    padding: 2px;
+    outline: 0;
+
+    position: absolute;
+    z-index: -1;
+    animation: spin 500ms linear infinite;
+}
+
+button[type="submit"] {
+    appearance: none;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+
+    width: 30.125rem;
+    height: 3.5rem;
+
+    color: inherit; /* --content-primary */
+    background-color: var(--background-tertiary);
+    border: none;
+    border-radius: .5rem;
+
+    padding: 1rem;
+    position: relative;
+    cursor: pointer;
+
+    & .replay {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1.5rem;
+        height: 1.5rem;
+        position: relative;
+
+        & img {
+            position: absolute;
+        }
+
+        & img[src*="round-arrow"] {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+
+    &:hover {
+        background-color: var(--background-secondary);
+
+        & img[src*="arrow-right"] {
+            animation: slide 600ms linear alternate infinite;
+        }
+
+        & img[src*="round-arrow"] {
+            animation: rotate-infinite 1.5s linear infinite;
+        }
+    }
+}
+
+button[type="submit"]:focus,
+button[type="submit"]:focus-within { outline: none; }
+
+
+button[type="submit"]:active {
+    & span,
+    & img {
+        scale: 0.9;
+    }
+
+    &::before {
+        padding: 3px;
+    }
+}
+
+@keyframes slide {
+    from {
+        transform: initial;
+    } to {
+        transform: translateX(.375rem);
+    }
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    } to {
+        --angle: 360deg;
+    }
+}
+
+@keyframes rotate-infinite {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (width < 85.375rem) {
+    & button[type="submit"] {
+        width: 100%;
+    }
+}

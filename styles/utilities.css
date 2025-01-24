@@ -1,0 +1,55 @@
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.hidden {
+    display: none;
+}
+
+.display-large {
+    font: var(--display-large);
+    text-transform: uppercase;
+}
+
+.display-medium {
+    font: var(--display-medium);
+    text-transform: uppercase;
+}
+
+.display-small {
+    font: var(--display-small);
+    text-transform: uppercase;
+}
+
+.overline {
+    font: var(--overline);
+    text-transform: uppercase;
+}
+
+.paragraph-large {
+    font: var(--paragraph-large);
+}
+
+.paragraph-medium {
+    font: var(--paragraph-medium);
+}
+
+.paragraph-small {
+    font: var(--paragraph-small);
+}
+
+.label-medium {
+    font: var(--label-medium);
+}
+
+.label-small {
+    font: var(--label-small);
+}
+
+.toggle-label {
+    font: var(--toggle-label);
+}

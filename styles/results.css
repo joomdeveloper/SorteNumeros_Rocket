@@ -1,0 +1,76 @@
+#results {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .25rem;
+    height: 6.25rem;
+    /*background-color: rgba(0, 255, 21, 0.048);*/
+
+    & .result-wrapper {
+        justify-content: center;
+        align-items: center;
+        width: 5.25rem;
+        height: 5.25rem;
+
+        background-color: var(--content-brand);
+        color: var(--color-inverse);
+        /*border: 1px solid var(--content-brand); /*remove after test*/
+        border-radius: 1.75rem;
+
+
+        scale: 0;
+        animation: 
+        appear-wrapper 2s ease-in-out forwards, 
+        rotate 1.5s 500ms forwards, 
+        invert-colors 1s 1.7s forwards;
+
+        & span { 
+            font-size: 3rem;
+            opacity: 0;
+            animation: appear-number 500ms 600ms forwards , stay-still 1.5s 500ms forwards;
+        }
+    }
+}
+
+@keyframes appear-wrapper {
+    0% {
+        scale: 0;
+    }
+    30% {
+        scale: 1.3;
+    }
+    90% {
+        scale: 1.3;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes appear-number {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    to {
+        rotate: 180deg;
+    }
+}
+
+@keyframes stay-still {
+    to {
+        rotate: -180deg;
+    }
+}
+
+@keyframes invert-colors {
+    from {
+        background-color: var(--content-brand);
+        color: var(--color-inverse);
+    } to {
+        background-color: transparent;
+        color: var(--content-brand);
+    }
+}
